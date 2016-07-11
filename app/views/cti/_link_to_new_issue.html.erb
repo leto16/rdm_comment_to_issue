@@ -1,0 +1,17 @@
+<% if journal.notes.present? %>
+	<div>
+		<%= link_to( 'Перенести в задачу', new_project_issue_path(@issue.project, 
+                :issue => {
+      					   :tracker_id      => @issue.tracker,
+                   :parent_issue_id => @issue.id,
+      					   :subject         => 'Note' + journal.indice.to_s + '. ' + @issue.subject,
+      					   :start_date      => Date.today,
+      					   :due_date        => Date.today + 3,
+      					   :priority_id     => 5,
+      					   :category_id     => @issue.category_id,
+      					   :description     => journal.notes
+    				    })) %> 
+		<br>
+		<br>
+	</div>
+<% end %>
