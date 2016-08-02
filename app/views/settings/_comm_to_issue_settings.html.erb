@@ -1,0 +1,8 @@
+<p>
+	<%= content_tag(:label, "Значение трекера по умолчанию:") %>
+	<%= select_tag 'settings[cti_tracker]', options_for_select(Tracker.all.collect {|t| [t.name, t.id]}, :selected => settings['cti_tracker']) %>
+</p>
+<p>
+	<%= content_tag(:label, "Значение статуса по умолчанию:") %>
+	<%= select_tag 'settings[cti_status]', options_for_select(IssueStatus.all.collect {|s| [s.name, s.id]}, :selected => settings['cti_status']) %>
+</p>

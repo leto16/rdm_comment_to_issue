@@ -2,15 +2,15 @@
 	<div>
 		<%= link_to( 'Перенести в задачу', new_project_issue_path(@issue.project, 
                 :issue => {
-      					   :tracker_id      => @issue.tracker,
-                   :parent_issue_id => @issue.id,
+                   :tracker_id      => Setting.plugin_comment_to_issue['cti_tracker'],
       					   :subject         => 'Note' + journal.indice.to_s + '. ' + @issue.subject,
       					   :start_date      => Date.today,
       					   :due_date        => Date.today + 3,
       					   :priority_id     => 5,
       					   :category_id     => @issue.category_id,
       					   :description     => journal.notes
-    				    })) %> 
+    				    }, :rel_id => @issue.id
+                )) %> 
 		<br>
 		<br>
 	</div>
